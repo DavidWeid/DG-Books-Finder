@@ -5,17 +5,27 @@ const SearchForm = props => {
   return (
     <form className="search">
       <div className="form-row">
-        <div className="col-auto">
+        <div className="col-auto form-col">
           <input
-            value={props.search}
+            value={props.title}
             onChange={props.handleInputChange}
-            name="book"
+            name="title"
             type="text"
             className="form-control"
             placeholder="Book Title"
           />
         </div>
-        <div className="col-auto">
+        <div className="col-auto form-col">
+          <input
+            value={props.author}
+            onChange={props.handleInputChange}
+            name="author"
+            type="text"
+            className="form-control"
+            placeholder="Author Name"
+          />
+        </div>
+        <div className="col-auto form-col">
           <button
             type="submit"
             onClick={props.handleFormSubmit}

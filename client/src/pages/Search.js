@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import API from "../utils/API";
 import Banner from "../components/Banner";
 import SearchForm from "../components/SearchForm";
 import SearchResults from "../components/SearchResults";
@@ -7,7 +8,8 @@ import Row from "../components/Grid/Row.js";
 
 class Search extends Component {
   state = {
-    search: "",
+    title: "",
+    author: "",
     results: [
       {
         _id: 1,
@@ -34,13 +36,33 @@ class Search extends Component {
   componentDidMount() {}
 
   handleInputChange = e => {
-    this.setState({ search: e.target.value });
-    console.log(this.state.search);
+    const { name, value } = e.target;
+    this.setState({ [name]: value });
+    console.log(this.state.title);
+    console.log(this.state.author);
   };
 
   handleFormSubmit = e => {
     e.preventDefault();
     console.log("Search Clicked");
+    const title = this.state.title;
+    const author = this.state.author;
+
+    if (title && !author) {
+      this.searchBooks(title);
+    } else if (author &&!title) {
+      this.searchAuthor(author);
+    }
+  };
+
+  searchBooks = title => {
+    API.searchBookTitle(title)
+      .then(res => console.log(res.data.items[0].volumeInfo))
+      .catch(err => console.log(err));
+  };
+
+  searchAuthor = author => {
+    API.searchBookAuthor(author).then(res => console.log(res)).catch(err => console.log(err));
   };
 
   render() {
