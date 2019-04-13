@@ -1,0 +1,13 @@
+.banner-image {
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+.banner-text {
+    padding: 2%;
+    text-align: center;
+    color: white;
+}

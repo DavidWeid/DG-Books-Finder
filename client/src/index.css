@@ -1,0 +1,47 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root,
+#root > div,
+div[data-reactroot] {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  line-height: 150%;
+  font-family: sans-serif;
+  position: relative;
+}
+
+a,
+a:hover {
+  text-decoration: none;
+}
+
+.container {
+  padding-bottom: 5%;
+}
+
+.landing-bg {
+  z-index: 5;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background-color: black;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.landing-content {
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+}
