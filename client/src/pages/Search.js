@@ -64,6 +64,12 @@ class Search extends Component {
     const description = saveFrom.getAttribute("description");
     const image = saveFrom.getAttribute("image");
     const link = saveFrom.getAttribute("link");
+    const id = e.target.id;
+    console.log(id);
+
+    this.setState(prevState => ({
+      results: prevState.results.filter(item => item.id !== id)
+    }));
 
     API.saveBook({
       title: title,

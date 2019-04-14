@@ -13,7 +13,7 @@ class Saved extends Component {
   componentWillMount() {
     console.log(this.state.books);
     this.loadSavedBooks();
-  };
+  }
 
   loadSavedBooks = () => {
     API.getAllBooks()
@@ -21,12 +21,16 @@ class Saved extends Component {
       .catch(err => console.log(err));
   };
 
-  handleDeleteBtn = (id) => {
-    // const _id = e.target.id;
-    // console.log(_id);
-  }
+  handleDeleteBtn = e => {
+    const targetId = e.target.value;
+    console.log(targetId);
+    API.deleteBook(targetId)
+      .then(res => this.loadSavedBooks())
+      .catch(err => console.log(err));
+  };
 
   render() {
+    console.log(this.state.books);
     return (
       <div>
         <Banner backgroundImage="./images/books-banner.jpg">
@@ -36,7 +40,10 @@ class Saved extends Component {
         </Banner>
         <Container style={{ marginTop: 20 }}>
           <Row style={{ marginTop: 20 }}>
-            <SavedResults results={this.state.books} handleDeleteBtn={this.handleDeleteBtn} />
+            <SavedResults
+              results={this.state.books}
+              handleDeleteBtn={this.handleDeleteBtn}
+            />
           </Row>
         </Container>
       </div>

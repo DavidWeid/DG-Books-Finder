@@ -5,6 +5,7 @@ import Row from "../Grid/Row.js";
 
 const SearchResults = props => {
   const books = props.results;
+  console.log(books);
 
   const listBooks = books.map(book => (
     <Row fluid="true" key={book.volumeInfo.industryIdentifiers[0].identifier}>
@@ -20,9 +21,8 @@ const SearchResults = props => {
 
         <div className="media-body">
           <h4>{book.volumeInfo.title}</h4>
-          <h5>{book.volumeInfo.authors[0]}</h5>
-          <h5>{book.volumeInfo.authors[1]}</h5>
-          <h5>{book.volumeInfo.authors[2]}</h5>
+          <h5>{book.volumeInfo.authors ? book.volumeInfo.authors.toString().split(",").join(", ") : "Not Listed"}</h5>
+
           <a
             className="list-btn btn btn-danger"
             rel="noopener noreferrer"
@@ -41,6 +41,7 @@ const SearchResults = props => {
             description={book.volumeInfo.description}
             image={book.volumeInfo.imageLinks.thumbnail}
             link={book.volumeInfo.canonicalVolumeLink}
+            id={book.id}
           >
             Save Book
           </button>

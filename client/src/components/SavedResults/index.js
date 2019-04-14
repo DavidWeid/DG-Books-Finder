@@ -32,6 +32,7 @@ const SavedResults = props => {
             className="list-btn save-btn btn btn-danger"
             type="button"
             onClick={props.handleDeleteBtn}
+            value={book._id}
           >
             Remove Book
           </button>
