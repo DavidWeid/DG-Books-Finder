@@ -10,26 +10,7 @@ class Search extends Component {
   state = {
     title: "",
     author: "",
-    results: [
-      {
-        _id: 1,
-        title: "How Not to Code",
-        authors: "Spongebob",
-        description: "What I learned from coding school is...",
-        image:
-          "https://i.pinimg.com/236x/c4/2f/e3/c42fe38d2c1db72e0bc2ad376a698387--boy-boy-hot-anime.jpg?b=t",
-        link: "https://google.com"
-      },
-      {
-        _id: 2,
-        title: "Naming Apps 101",
-        authors: "Chad Armstrong",
-        description: "I think I blacked out when you asked the questions.",
-        image:
-          "https://i.pinimg.com/736x/c6/1d/f1/c61df19d19c5812065fead23613a42a4--anime-animals-anime-guys.jpg",
-        link: "https://google.com"
-      }
-    ],
+    results: [],
     error: ""
   };
 
@@ -50,19 +31,49 @@ class Search extends Component {
 
     if (title && !author) {
       this.searchBooks(title);
-    } else if (author &&!title) {
+    } else if (author && !title) {
       this.searchAuthor(author);
     }
   };
 
   searchBooks = title => {
     API.searchBookTitle(title)
-      .then(res => console.log(res.data.items[0].volumeInfo))
+      .then(res => {
+        console.log(res.data.items[0].volumeInfo);
+        console.log(res.data.items);
+        this.setState({ results: res.data.items });
+        console.log(this.state.results);
+      })
       .catch(err => console.log(err));
   };
 
   searchAuthor = author => {
-    API.searchBookAuthor(author).then(res => console.log(res)).catch(err => console.log(err));
+    API.searchBookAuthor(author)
+      .then(res => {
+        console.log(res);
+        console.log(res.data.items);
+        this.setState({ results: res.data.items });
+      })
+      .catch(err => console.log(err));
+  };
+
+  handleSaveBtn = e => {
+    const saveFrom = e.target;
+    const title = saveFrom.getAttribute("title");
+    const authors = saveFrom.getAttribute("authors");
+    const description = saveFrom.getAttribute("description");
+    const image = saveFrom.getAttribute("image");
+    const link = saveFrom.getAttribute("link");
+
+    API.saveBook({
+      title: title,
+      authors: authors,
+      description: description,
+      image: image,
+      link: link
+    })
+      .then(res => console.log(res))
+      .catch(err => console.log(err));
   };
 
   render() {
@@ -81,7 +92,10 @@ class Search extends Component {
             />
           </Row>
           <Row style={{ marginTop: 20 }}>
-            <SearchResults results={this.state.results} />
+            <SearchResults
+              results={this.state.results}
+              handleSaveBtn={this.handleSaveBtn}
+            />
           </Row>
         </Container>
       </div>

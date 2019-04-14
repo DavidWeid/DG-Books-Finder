@@ -18,7 +18,8 @@ app.use(routes);
 
 // Connect to MongoDB
 mongoose.connect(
-  process.env.MONGODB_URI || "mongodb://localhost/dg-books-finder"
+  process.env.MONGODB_URI || "mongodb://localhost/dg-books-finder",
+  { useNewUrlParser: true }
 );
 
 // Start the API server
