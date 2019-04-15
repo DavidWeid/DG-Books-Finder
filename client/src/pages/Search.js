@@ -86,7 +86,7 @@ class Search extends Component {
     return (
       <div>
         <Banner backgroundImage="./images/books-banner.jpg">
-          <h1>Google Books</h1>
+          <h1>DG Books</h1>
           <h3>Browse, View, and Save Books</h3>
           <h6>Powered By Google Books</h6>
         </Banner>

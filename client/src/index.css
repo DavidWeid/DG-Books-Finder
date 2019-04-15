@@ -37,6 +37,18 @@ a:hover {
   background-size: cover;
 }
 
+.skewed-bg {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background: #487eb0;
+  background: linear-gradient(to right bottom, #353b48 25%, black 75%);
+}
+
 .landing-content {
   text-align: center;
   position: absolute;
@@ -44,4 +56,21 @@ a:hover {
   left: 50%;
   transform: translate(-50%, -50%);
   color: white;
+}
+
+#headtext {
+  margin-bottom: 10%;
+}
+
+/* .landing-content h1, h4 {
+  margin-bottom: 24px;
+  color: #f5f6fa;
+} */
+
+#landing-btn {
+  font-size: 150%;
+  color: #fbc531;
+}
+#landing-btn:hover {
+  color: #487eb0;
 }

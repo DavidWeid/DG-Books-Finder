@@ -13,7 +13,7 @@ class App extends Component {
     return (
       <Router>
         <div>
-          <Navbar brand="Google Books" pageOne="Search" pageTwo="Saved" />
+          <Navbar brand="DG Books" pageOne="Search" pageTwo="Saved" />
           <Wrapper>
             <Route exact path="/" component={Landing} />
             <Route exact path="/Search" component={Search} />
