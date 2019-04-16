@@ -75,7 +75,13 @@ Our "booksController" handles our MongoDB commands. Three methods: findAll (db.B
 
 ### Upgrades
 
+A bug exists when connecting to the Google API when searching some titles. Error is a simple "Cannot read property of '0' of undefined", though the variable in question is defined and can be console logged. With the error, the page doesn't load properly.
 
+Images need to be corrected to be served over HTTPS, not HTTP (insecure image '<URL>').
+    
+When removing a book from our "Saved" books, a prompt should be activated to confirm deletion before deleting.
+
+We could also implement React routing and socket.io to create a notification component that triggers whenever a User saves a book. The message goes to all browsers.
 
 - - -
 ### Contact
