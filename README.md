@@ -72,3 +72,14 @@ Our "booksController" handles our MongoDB commands. Three methods: findAll (db.B
         \   index.js
 ```
 - - -
+
+### Upgrades
+
+
+
+- - -
+### Contact
+
+If you have any questions, concerns, or comments, please reach me at
+
+david.weid.2@gmail.com
