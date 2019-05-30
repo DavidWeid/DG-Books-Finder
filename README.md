@@ -4,7 +4,7 @@
 - - -
 ## Overview
 
-DG Books is a Node/Express/React appliation that allows Users to search the Google Books API via book title or author. After searching, books are displayed to the User. The User can then view a short description of the book, view the book on the Google Books store, or save the book to refer back to at a later time. When Users view the "Saved" page, all saved books are displayed and the User can then unsave a book, view the description as before, or view the book on the Google Books store.
+DG Books is a Node/Express/React application that allows Users to search the Google Books API via book title or author. After searching, books are displayed to the User. The User can then view a short description of the book, view the book on the Google Books store, or save the book to refer back to at a later time. When Users view the "Saved" page, all saved books are displayed and the User can then unsave a book, view the description as before, or view the book on the Google Books store.
 
 ## Directory Structure
 
